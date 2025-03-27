@@ -1,0 +1,17 @@
+server:
+  port: 8080
+test:
+  name: Ageng-Test
+app:
+  name: Ageng
+  currency: IDR
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+server:
+  port: 9999
+app:
+  name: Ageng-Production
+  currency: IDR-Production

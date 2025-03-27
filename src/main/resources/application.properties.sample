@@ -1,0 +1,14 @@
+server.port=8081
+spring.application.name=belajar-springboot
+test.name=ageng-default
+app.name=belajar-springboot-default
+app.currency=IDR-default
+
+#---
+spring.config.activate.on-profile=development
+server.port=8088
+
+
+# Development Profile using 1 file
+# mvn spring-boot:run -Dsprings-profiles.active=development OR
+# mvn spring-boot:run -Dspring-boot.run.profiles=development

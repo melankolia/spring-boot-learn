@@ -1,0 +1,11 @@
+server.port=8082
+spring.application.name=belajar-springboot
+test.name=ageng-staging
+app.name=belajar-springboot-staging
+app.currency=IDR-staging
+
+# Run The Application
+# mvn spring-boot:run -Dspring.profiles.active=staging
+
+# If compiled already
+# java -jar -Dspring.profiles.active=staging application.jar
