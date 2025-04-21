@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+    <head>
+        <title>Author Registered List</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="container mt-5">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Authors List</h5>
+                        <a th:href="@{/authors/new}" class="btn btn-light rounded-3 px-4 py-2 text-primary fw-semibold">
+                            Create
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Author Name</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="author, stat : ${authors}">
+                                        <th scope="row" th:text="${stat.count}">1</th>
+                                        <td th:text="${author.name}">Author Name</td>
+                                        <td th:text="${author.description}">Description</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

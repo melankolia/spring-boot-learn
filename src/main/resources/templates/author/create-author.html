@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Form Registration</title>
+</head>
+    <body>
+        <div layout:fragment="content" class="modal modal-sheet position-static d-block  p-4 py-md-5">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-4 shadow">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <h5 class="modal-title">Register Author</h5>
+                    </div>
+                    <div class="modal-body p-5 pt-0">
+                        <form th:action="@{/authors/new}" method="POST" th:object="${authorDTO}">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" id="name" placeholder="Name" name="name" th:field="*{name}" required>
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" id="description" placeholder="Description" name="description" th:fields="*{description}" required>
+                                <label for="description">Description</label>
+                            </div>
+                            <button type="submit" value="Submit" class="w-100 mb-2 btn rounded-3 btn-primary">Register Author</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title layout:title-pattern="$CONTENT_TITLE - Book's Store">Book's Store</title>
+        <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/app.css}" rel="stylesheet" />
+        <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
+        <script th:src="@{/js/app.js}" defer></script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+            .main-container {
+                flex: 1 0 auto;
+                min-height: calc(100vh - 56px - 100px); /* viewport height - navbar height - footer height */
+                padding-top: 56px; /* navbar height */
+            }
+            .content-wrapper {
+                height: 100%;
+            }
+            footer {
+                flex-shrink: 0;
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" th:href="@{/}">Book's Creator</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search books..." aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </div> -->
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-container">
+            <div class="container h-100">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" th:if="${breadcrumb}" th:each="item : ${breadcrumb}">
+                            <a th:if="${!itemStat.last}" th:href="${item.url}" th:text="${item.name}"></a>
+                            <span th:if="${itemStat.last}" th:text="${item.name}"></span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="content-wrapper">
+                    <div layout:fragment="content" />
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer py-3 bg-dark text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Book's Creator</h5>
+                        <p class="text-muted">Your one-stop destination for all books</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="mb-0">&copy; 2024 Book's Creator. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+ 
