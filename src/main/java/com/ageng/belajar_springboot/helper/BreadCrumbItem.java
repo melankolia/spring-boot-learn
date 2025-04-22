@@ -1,4 +1,4 @@
-package com.ageng.belajar_springboot.dto;
+package com.ageng.belajar_springboot.helper;
 
 public class BreadCrumbItem {
     private String name;
