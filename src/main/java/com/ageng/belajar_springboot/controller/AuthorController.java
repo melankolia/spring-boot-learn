@@ -16,6 +16,7 @@ import com.ageng.belajar_springboot.service.AuthorService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+// @RestController
 @RequestMapping("/authors")
 public class AuthorController {
 
@@ -65,7 +66,7 @@ public class AuthorController {
     @GetMapping("list")
     public String getListAuthor(Model model) {
 
-        List<AuthorDTO> authors = this.authorService.getAllAuthors();
+        List<AuthorDTO> authors = this.authorService.getAllAuthors("Ageng");
 
         model.addAttribute("authors", authors);
         model.addAttribute("breadcrumb", List.of(
