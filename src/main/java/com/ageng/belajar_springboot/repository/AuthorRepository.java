@@ -2,6 +2,8 @@ package com.ageng.belajar_springboot.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -34,4 +36,9 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     // SQL Native Query
     // criteria api
     // Hibernate Scratch
+
+    public Page<Author> findByNameIgnoreCase(String name, Pageable pageable);
+
+    // Add a method that supports LIKE queries
+    public Page<Author> findByNameLikeIgnoreCase(String name, Pageable pageable);
 }

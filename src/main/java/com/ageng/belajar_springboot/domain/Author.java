@@ -16,7 +16,8 @@ public class Author {
     private Long id;
 
     // Custom column name as author_name, not null, and varchar(500)
-    @Column(name = "author_name", nullable = false, columnDefinition = "VARCHAR(500)")
+    // @Column(name = "author_name", nullable = false, columnDefinition =
+    // "VARCHAR(500)")
     private String name;
 
     private String description;
