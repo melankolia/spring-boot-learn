@@ -1,8 +1,17 @@
+minio:
+  url: http://172.17.0.2:9000
+  access-key: zKNvzp774xvfxTvbHQHd
+  secret-key: UA0RXKyp1P03BiMdcrIjoCV7DKLUd5ZYHykiCvap
+  bucket: belajar-backend
 server:
   port: 8080
 spring:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
   datasource:
-    hikari: 
+    hikari:
       connection-timeout: 30000
       idle-timeout: 600000
       max-lifetime: 1800000

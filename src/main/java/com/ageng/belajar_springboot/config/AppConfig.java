@@ -3,6 +3,8 @@ package com.ageng.belajar_springboot.config;
 import com.ageng.belajar_springboot.Author;
 import com.ageng.belajar_springboot.Book;
 
+import io.minio.MinioClient;
+
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -63,9 +65,12 @@ public class AppConfig {
         return session;
     }
 
-    // @Bean
-    // public EmailService emailService(@Qualifier("mailSession") Session
-    // mailSession) {
-    // return new EmailService(mailSession);
-    // }
+    @Bean
+    public MinioClient minioClient(MinioProperties properties) {
+        MinioClient minioClient = MinioClient.builder()
+                .endpoint(properties.getUrl())
+                .credentials(properties.getAccessKey(), properties.getSecretKey())
+                .build();
+        return minioClient;
+    }
 }
